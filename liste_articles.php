@@ -31,7 +31,17 @@
                         while ($articles = mysqli_fetch_array($resultArticle))
                         {
                             $code = $articles[0] ;
+
+                            $requeteCategorie = "SELECT c.Nom , c.Id_Categorie FROM categorie c , article a WHERE c.Id_Categorie = a.Id_Categorie AND a.Id_Categorie = ".$articles[6].";";
+                            $resultCategorie = mysqli_query($connex,$requeteCategorie);
+                            $categorie = mysqli_fetch_array($resultCategorie);
+
                             $vue = "index.php?vue=true&code=".$code ;
+
+                            $requeteKeywords = "SELECT k.Nom , k.Id_Keyword FROM keywords k , article_keywords ak , article a WHERE a.Id_Article =".$code." AND a.Id_Article = ak.Id_Article AND ak.Id_Keyword = k.Id_Keyword" ;
+                            $resultKeywords = mysqli_query($connex,$requeteKeywords);
+                            $keywords = mysqli_fetch_all($resultKeywords);
+
                             echo    '<div class="card">
                                         <a href="'.$vue.'"><img src="'.$articles[4].'" class="card-img-top" alt=""></a>
                                         <div class="card-body">
@@ -40,6 +50,15 @@
                                             <div class="card-footer">
                                                 <p class="card-text text-center">Ecrit par : '.$articles[2].'</p>
                                                 <p class="card-text text-center"><small class="text-muted">Date de création :'.$articles[5].'</small></p>
+                                            </div>
+                                            <div class="card-footer">
+                                                <p class="card-text text-center">Catégorie : <a href="index.php?list_categories=true&categorie='.$categorie[1].'">'.$categorie[0].'</a></p>
+                                                <p class="card-text text-center">Keywords : ' ;
+                                                foreach ($keywords as $k)
+                                                {
+                                                    echo '<a href="index.php?list_keywords=true&keywords='.$k[1].'">'.$k[0].' </a>' ;
+                                                }            
+                            echo            '   </p>
                                             </div>
                                         </div>
                                     </div>';

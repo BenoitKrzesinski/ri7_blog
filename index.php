@@ -70,6 +70,10 @@
             {
                 include_once('vue_article_particulier.php');
             }
+            else if (isset($_GET['search']) && $_GET['search'] == true)
+            {
+                include_once('requete_search.php');
+            }
             else 
             {
                 include_once('liste_articles.php'); 
