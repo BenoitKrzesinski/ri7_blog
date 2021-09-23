@@ -66,11 +66,15 @@
                         break;
                     
                     case('list_categories') :
-                        include_once('list_articles_categories.php');
+                        include_once('liste_articles_categories.php');
                         break;
 
                     case('list_keywords') :
-                        include_once('list_articles_keywords.php');
+                        include_once('liste_articles_keywords.php');
+                        break;
+
+                    case('list_auteurs') :
+                        include_once('liste_articles_auteurs.php');
                         break;
                     
                     case('vue_article') :
@@ -78,7 +82,7 @@
                         break;
 
                     case('search') :
-                        include_once('list_articles_search.php');
+                        include_once('liste_articles_search.php');
                         break;
 
                     default :

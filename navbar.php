@@ -83,6 +83,40 @@
                     }
                     ?>
 
+                    <!-- Le dropdown Auteurs -->
+                    <?php
+                    include_once("fonctionsPHP.php") ;
+                    $connex = connexionDB('bdd_blog') ;
+                    if ($connex) 
+                    {
+                        mysqli_set_charset($connex, 'utf8');    // Ici le code pour mettre ma base de données en UTF8
+                            // Récupérer les données de Keywords
+                        $requeteAuteur = "SELECT Auteur , Id_Article FROM article";
+                        $resultAuteur = mysqli_query($connex,$requeteAuteur);
+                        if (!$resultAuteur) 
+                            {
+                                echo "<script type=text/javascript>" ;
+                                echo "alert('Impossible d afficher les auteurs')</script>" ;
+                            }
+                        else 
+                            {
+                                echo '<li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Auteurs
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">' ;
+                                while ($auteur = mysqli_fetch_array($resultAuteur))
+                                {
+                                    $link_auteurs = 'index.php?vue=list_auteurs&auteur='.$auteur[1];
+                                    echo '<li><a class="dropdown-item" href="'.$link_auteurs.'">'.$auteur[0].'</a></li>' ;
+                                }
+                                echo "</ul>
+                                    </li>" ;
+                            }
+                            mysqli_close($connex) ;
+                    }
+                    ?>
+
                 </ul>
                 <form class="d-flex" id="search_form" action="index.php?vue=search" method="GET">
                     <input type="hidden" name="vue" value="search"> <!-- Remplace l'action au-dessus (?vue=search) car les paramètres dans l'URL sont automatiquement écrasés au moment du Submit -->
