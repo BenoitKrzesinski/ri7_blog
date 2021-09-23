@@ -85,6 +85,14 @@
                         include_once('liste_articles_search.php');
                         break;
 
+                    case('advanced') :
+                        include_once('form_advanced_search.php');
+                        break;
+
+                    case('result_advanced_search') :
+                        include_once('result_advanced_search.php');
+                        break;
+
                     default :
                         include_once('liste_articles.php');
                 }

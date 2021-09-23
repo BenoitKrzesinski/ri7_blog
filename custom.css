@@ -146,7 +146,7 @@ input , textarea {
     margin-bottom: 50px;
 }
 
-.btn-outline-success , button , #btn-creer-article input , #btn-modifier-article input {
+.btn-outline-success , button , #btn-creer-article input , #btn-modifier-article input , #btn-rechercher-article input {
     color: var(--color1);
     border-color: var(--color1);
     background: transparent;
@@ -155,11 +155,11 @@ input , textarea {
     text-decoration: none;
 }
 
-#btn-creer-article input , #btn-modifier-article input {
+#btn-creer-article input , #btn-modifier-article input , #btn-rechercher-article input {
     background: white;
 }
 
-.btn-outline-success:hover , button:hover , #btn-creer-article input:hover , #btn-modifier-article input:hover {
+.btn-outline-success:hover , button:hover , #btn-creer-article input:hover , #btn-modifier-article input:hover , #btn-rechercher-article input:hover {
     color: white;
     background-color: var(--color1);
     border-color: var(--color1);
@@ -173,7 +173,7 @@ input , textarea {
     font-size: 0.8em;
 }
 
-#form-creer-article , #form-modifier-article {
+#form-creer-article , #form-modifier-article , #form-rechercher-article {
     width: 50%;
     text-align: center;
 }

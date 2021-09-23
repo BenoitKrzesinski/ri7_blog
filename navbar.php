@@ -117,6 +117,10 @@
                     }
                     ?>
 
+                    <li class="nav-item">
+                        <a href="index.php?vue=advanced" class="nav-link">Recherche avancée</a>
+                    </li>
+
                 </ul>
                 <form class="d-flex" id="search_form" action="index.php?vue=search" method="GET">
                     <input type="hidden" name="vue" value="search"> <!-- Remplace l'action au-dessus (?vue=search) car les paramètres dans l'URL sont automatiquement écrasés au moment du Submit -->
