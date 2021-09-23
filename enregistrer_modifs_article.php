@@ -58,8 +58,18 @@ if(isset($_POST["titre"]) && isset($_POST["auteur"]) && isset($_POST["contenu_te
                 echo "</script>";
             }  
 
+        // On supprime d'abord tous les liens vers Keywords avec cet article-là (puisqu'on les modifie)
+        $requeteSupprKeywords = "DELETE FROM article_keywords WHERE Id_Article = ".$IdArticle.";" ;
+        $resultSupprKeywords = mysqli_query($connex, $requeteSupprKeywords) ;
+
+        // Et ensuite on rajoute les nouveaux via une requête INSERT (pour être sûr d'avoir les bons Keywords)
+        foreach($Keywords as $k) {
+            $requeteModifKeywords = "INSERT INTO article_keywords (Id_Article , Id_Keyword) VALUES('$IdArticle' , '$k')" ;
+            $resultModifKeywords = mysqli_query($connex, $requeteModifKeywords) ;
+        }
+
     echo "<script type=\"text/javascript\">"; 
-    echo "window.location.replace('index.php?admin=true');"; 
+    echo "window.location.replace('index.php?vue=true&code=".$IdArticle."');"; 
     echo "</script>"; 
 
     mysqli_close($connex);

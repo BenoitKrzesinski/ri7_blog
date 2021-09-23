@@ -84,8 +84,8 @@
                     ?>
 
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
+                <form class="d-flex" id="search_form">
+                    <input class="form-control me-2" type="search" id="search_input" name="search_input" placeholder="Rechercher" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Rechercher</button>
                 </form>
             </div>
