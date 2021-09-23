@@ -69,12 +69,12 @@ if(isset($_POST["titre"]) && isset($_POST["auteur"]) && isset($_POST["contenu_te
         }
 
     echo "<script type=\"text/javascript\">"; 
-    echo "window.location.replace('index.php?vue=true&code=".$IdArticle."');"; 
+    echo "window.location.replace('index.php?vue=vue_article&code=".$IdArticle."');"; 
     echo "</script>"; 
 
     mysqli_close($connex);
 
-    //header("Location: index.php?admin=true"); 
+    //header("Location: index.php?vue=admin"); 
     //exit;
 
     } 

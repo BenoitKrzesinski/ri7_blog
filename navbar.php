@@ -12,7 +12,7 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?admin=true">Gestion des articles</a>
+                        <a class="nav-link" href="index.php?vue=admin">Gestion des articles</a>
                     </li>
 
                     <!-- Le dropdown Catégories -->
@@ -39,7 +39,7 @@
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">' ;
                                 while ($categories = mysqli_fetch_array($resultCategorie))
                                 {
-                                    $link_categorie = 'index.php?list_categories=true&categorie='.$categories[0];
+                                    $link_categorie = 'index.php?vue=list_categories&categorie='.$categories[0];
                                     echo '<li><a class="dropdown-item" href="'.$link_categorie.'">'.$categories[1].'</a></li>' ;
                                 }
                                 echo "</ul>
@@ -73,7 +73,7 @@
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">' ;
                                 while ($keywords = mysqli_fetch_array($resultKeywords))
                                 {
-                                    $link_keywords = 'index.php?list_keywords=true&keywords='.$keywords[0];
+                                    $link_keywords = 'index.php?vue=list_keywords&keywords='.$keywords[0];
                                     echo '<li><a class="dropdown-item" href="'.$link_keywords.'">'.$keywords[1].'</a></li>' ;
                                 }
                                 echo "</ul>
@@ -84,8 +84,8 @@
                     ?>
 
                 </ul>
-                <form class="d-flex" id="search_form" action="index.php?search=true" method="GET">
-                    <input type="hidden" name="search" value="true"> <!-- Remplace l'action au-dessus (?search=true) car les paramètres dans l'URL sont automatiquement écrasés au moment du Submit -->
+                <form class="d-flex" id="search_form" action="index.php?vue=search" method="GET">
+                    <input type="hidden" name="vue" value="search"> <!-- Remplace l'action au-dessus (?vue=search) car les paramètres dans l'URL sont automatiquement écrasés au moment du Submit -->
                     <input class="form-control me-2" type="search" id="search_input" name="search_input" placeholder="Rechercher">
                     <button class="btn btn-outline-success" type="submit">Rechercher</button>
                 </form>

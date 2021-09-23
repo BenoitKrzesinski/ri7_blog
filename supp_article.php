@@ -50,7 +50,7 @@
 
                 echo "<script type='text/javascript'>"; 
                 echo "alert('Article supprimé avec succès !');";
-                echo "window.location.replace('index.php?admin=true');"; 
+                echo "window.location.replace('index.php?vue=admin');"; 
                 echo "</script>";
 
                 mysqli_close($connex);

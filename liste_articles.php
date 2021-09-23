@@ -36,7 +36,7 @@
                             $resultCategorie = mysqli_query($connex,$requeteCategorie);
                             $categorie = mysqli_fetch_array($resultCategorie);
 
-                            $vue = "index.php?vue=true&code=".$code ;
+                            $vue = "index.php?vue=vue_article&code=".$code ;
 
                             $requeteKeywords = "SELECT k.Nom , k.Id_Keyword FROM keywords k , article_keywords ak , article a WHERE a.Id_Article =".$code." AND a.Id_Article = ak.Id_Article AND ak.Id_Keyword = k.Id_Keyword" ;
                             $resultKeywords = mysqli_query($connex,$requeteKeywords);
@@ -52,14 +52,17 @@
                                                 <p class="card-text text-center"><small class="text-muted">Date de création :'.$articles[5].'</small></p>
                                             </div>
                                             <div class="card-footer">
-                                                <p class="card-text text-center">Catégorie : <a href="index.php?list_categories=true&categorie='.$categorie[1].'">'.$categorie[0].'</a></p>
-                                                <p class="card-text text-center">Keywords : ' ;
-                                                foreach ($keywords as $k)
-                                                {
-                                                    echo '<a href="index.php?list_keywords=true&keywords='.$k[1].'">'.$k[0].' </a>' ;
-                                                }            
-                            echo            '   </p>
-                                            </div>
+                                                <p class="card-text text-center">Catégorie : <a href="index.php?vue=list_categories&categorie='.$categorie[1].'">'.$categorie[0].'</a></p>' ;
+                            if ($keywords != null) 
+                            { 
+                                echo            '<p class="card-text text-center">Keywords : ' ;
+                                foreach ($keywords as $k)
+                                {
+                                    echo            '<a href="index.php?vue=list_keywords&keywords='.$k[1].'">'.$k[0].' </a>' ;
+                                }            
+                                echo            '</p>' ;
+                            }
+                            echo            '</div>
                                         </div>
                                     </div>';
                         }

@@ -66,12 +66,12 @@
 
 
         echo"<script type=\"text/javascript\">"; 
-	    echo "window.location.replace('index.php?vue=true&code=".$Id_Article_Insert."');"; 
+	    echo "window.location.replace('index.php?vue=vue_article&code=".$Id_Article_Insert."');"; 
         echo "</script>"; 
         
         mysqli_close($connex);
 
-        //header("Location: index.php?admin=true"); 
+        //header("Location: index.php?vue=admin"); 
         //exit;
 
         } 

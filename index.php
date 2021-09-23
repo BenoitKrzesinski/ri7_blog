@@ -46,37 +46,52 @@
 
         <?php 
 
-            if (isset($_GET['admin']) && $_GET['admin'] == true)
+            if (isset($_GET['vue'])) 
             {
-                include_once('modif_articles.php');
+
+                $vue = $_GET['vue'] ;
+
+                switch($vue) {
+
+                    case('admin') :
+                        include_once('modif_articles.php');
+                        break;
+                    
+                    case('create') :
+                        include_once('creation_article.php');
+                        break;
+
+                    case('mod') :
+                        include_once('modif_article_particulier.php');
+                        break;
+                    
+                    case('list_categories') :
+                        include_once('list_articles_categories.php');
+                        break;
+
+                    case('list_keywords') :
+                        include_once('list_articles_keywords.php');
+                        break;
+                    
+                    case('vue_article') :
+                        include_once('vue_article_particulier.php');
+                        break;
+
+                    case('search') :
+                        include_once('list_articles_search.php');
+                        break;
+
+                    default :
+                        include_once('liste_articles.php');
+                }
+            
             }
-            else if (isset($_GET['create']) && $_GET['create'] == true)
+
+            else
             {
-                include_once('creation_article.php');
-            }
-            else if (isset($_GET['mod']) && $_GET['mod'] == true)
-            {
-                include_once('modif_article_particulier.php');
-            }
-            else if (isset($_GET['list_categories']) && $_GET['list_categories'] == true)
-            {
-                include_once('list_articles_categories.php');
-            }
-            else if (isset($_GET['list_keywords']) && $_GET['list_keywords'] == true)
-            {
-                include_once('list_articles_keywords.php');
-            }
-            else if (isset($_GET['vue']) && $_GET['vue'] == true)
-            {
-                include_once('vue_article_particulier.php');
-            }
-            else if (isset($_GET['search']) && $_GET['search'] == true)
-            {
-                include_once('requete_search.php');
-            }
-            else 
-            {
-                include_once('liste_articles.php'); 
+
+                include_once('liste_articles.php');
+
             }
 
             ?>

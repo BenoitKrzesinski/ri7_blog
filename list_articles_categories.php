@@ -53,7 +53,7 @@ if(isset($_GET["categorie"]))
                 foreach ($articles as $a)
                 {
                     $code = $a[0] ;
-                    $vue = "index.php?vue=true&code=".$code ;
+                    $vue = "index.php?vue=vue_article&code=".$code ;
                     echo    '<div class="card">
                                 <a href="'.$vue.'"><img src="'.$a[4].'" class="card-img-top" alt=""></a>
                                 <div class="card-body">

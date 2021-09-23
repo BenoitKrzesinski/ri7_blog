@@ -43,7 +43,7 @@
                 $resultKeywords = mysqli_query($connex,$requeteKeywords);
                 $keywords = mysqli_fetch_all($resultKeywords);
 
-                $mod = "index.php?mod=true&code=".$IdArticle ;      // Transférer cet Id_Article vers le lien de modification (mod=true) sur la page index.php au click sur l'élément $mod
+                $mod = "index.php?vue=mod&code=".$IdArticle ;      // Transférer cet Id_Article vers le lien de modification (vue=mod) sur la page index.php au click sur l'élément $mod
                 $supp = "supp_article.php?code=".$IdArticle ;       // Transférer cet Id_Article vers la page supp_article.php au click sur l'élément $supp
             }
 
@@ -63,12 +63,14 @@
                 </div>
 
                 <div class="card-footer">
-                    <p class="card-text text-center">Catégorie : <a href="index.php?list_categories=true&categorie=<?= $categorie[1] ?>"><?= $categorie[0] ?></a></p>
+                    <p class="card-text text-center">Catégorie : <a href="index.php?vue=list_categories&categorie=<?= $categorie[1] ?>"><?= $categorie[0] ?></a></p>
+                <?php if ($keywords != null): ?>
                     <p class="card-text text-center">Keywords : 
                     <?php foreach ($keywords as $k): ?>
-                        <a href="index.php?list_keywords=true&keywords=<?= $k[1] ?>"><?= $k[0] ?> </a>
+                        <a href="index.php?vue=list_keywords&keywords=<?= $k[1] ?>"><?= $k[0] ?> </a>
                     <?php endforeach ; ?>       
                     </p>
+                <?php endif ; ?>
                 </div>
 
                 <div class="text-center card-footer-admin">
